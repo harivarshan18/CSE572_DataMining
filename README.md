@@ -1,116 +1,67 @@
-\documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage[hidelinks]{hyperref}
-\usepackage{enumitem}
-\usepackage{parskip}
-\usepackage{titlesec}
-\titleformat{\section}{\large\bfseries}{}{0em}{}
+# CSE 572 – Data Mining
 
-\begin{document}
+This repository contains my coursework for **CSE 572: Data Mining**.  
+It includes homework assignments, code implementations, experiments, and analysis related to data preprocessing, classification, clustering, and evaluation techniques covered in the course.
 
-\begin{center}
-{\LARGE \textbf{CSE 572: Data Mining -- Homework Repository}}\\
-\vspace{0.25em}
-{\small Author: \textbf{<Your Name>} \quad | \quad Term: \textbf{Spring 2026} \quad | \quad University: \textbf{UCF}}
-\end{center}
+The repository will be updated throughout the semester as new homework assignments are completed.
 
-\vspace{0.5em}
+---
 
-\section*{Overview}
-This GitHub repository contains my homework submissions for \textbf{CSE 572 (Data Mining)}.
-It includes code, notebooks, reports, and supporting files. The repository will be continuously updated to include all future homework assignments for this course.
+## Repository Structure
 
-\section*{Repository Structure}
-\begin{verbatim}
-cse572-data-mining/
-├── HW1/
-│   ├── report/
-│   ├── code/
-│   └── data/
-├── HW2/
-│   ├── report/
-│   ├── code/
-│   └── data/
-├── HW3/
-│   ├── report/
-│   ├── code/
-│   └── data/
-└── README.tex
-\end{verbatim}
+Each homework folder contains:
+- Jupyter notebooks with code and analysis
+- Any datasets used for the assignment
+- A brief README explaining the task and approach (when applicable)
 
-\section*{Current Contents}
-\subsection*{Homework: Titanic Classification (Kaggle-style)}
-This homework explores multiple classification models on the Titanic dataset with a focus on preprocessing and model comparison.
+---
 
-\textbf{Files included:}
-\begin{itemize}[leftmargin=1.2em]
-    \item \texttt{titanic-data-original.ipynb}: Original baseline notebook.
-    \item \texttt{titanic-kaggle.ipynb}: Updated notebook with improved preprocessing and evaluation.
-    \item \texttt{train.csv}, \texttt{test.csv}: Titanic dataset files.
-\end{itemize}
+## Homework 1 – Classification on the Titanic Dataset
 
-\textbf{Models evaluated:}
-\begin{itemize}[leftmargin=1.2em]
-    \item Support Vector Machines
-    \item KNN
-    \item Logistic Regression
-    \item Random Forest
-    \item Naive Bayes
-    \item Perceptron
-    \item Stochastic Gradient Descent
-    \item Linear SVC
-    \item Decision Tree
-\end{itemize}
+**Goal:**  
+Apply multiple classification models and analyze the effect of data preprocessing on model performance.
 
-\textbf{Key preprocessing changes used in the updated version:}
-\begin{itemize}[leftmargin=1.2em]
-    \item Added \texttt{Age\_missing} indicator and kept \texttt{Age} continuous (no binning).
-    \item Log-transformed \texttt{Fare} using \texttt{log(1 + Fare)} to reduce outlier impact.
-    \item Extracted \texttt{Deck} from \texttt{Cabin} and encoded it.
-    \item Used one-hot encoding for categorical features where appropriate (e.g., Title, Embarked, Deck).
-    \item Added cross-validation at the end to check generalization and detect overfitting.
-\end{itemize}
+**Models Implemented:**
+- Support Vector Machines
+- K-Nearest Neighbors
+- Logistic Regression
+- Random Forest
+- Decision Tree
+- Naive Bayes
+- Perceptron
+- Stochastic Gradient Descent
+- Linear SVC
 
-\section*{How to Run}
-\subsection*{Environment}
-Recommended: Python 3.9+ with the following packages:
-\begin{itemize}[leftmargin=1.2em]
-    \item \texttt{numpy}
-    \item \texttt{pandas}
-    \item \texttt{scikit-learn}
-    \item \texttt{matplotlib} (optional)
-    \item \texttt{seaborn} (optional)
-\end{itemize}
+**Key Data Preprocessing Improvements:**
+- Extracted meaningful features such as `Deck` from `Cabin`
+- Added missing value indicators (e.g., `Age_missing`)
+- Kept numerical features (Age, Fare) continuous instead of aggressive binning
+- Applied log transformation to Fare to reduce outlier effects
+- Used one-hot encoding for categorical variables like `Embarked` and `Title`
+- Ensured train/test feature alignment after encoding
 
-\subsection*{Running Notebooks}
-Open the notebooks using Jupyter:
-\begin{verbatim}
-jupyter notebook
-\end{verbatim}
-Then run cells in order:
-\begin{itemize}[leftmargin=1.2em]
-    \item \texttt{titanic-data-original.ipynb} for baseline results
-    \item \texttt{titanic-kaggle.ipynb} for improved preprocessing and updated results
-\end{itemize}
+**Evaluation:**
+- Initial model comparisons were done using training accuracy
+- Cross-validation was later added to detect and explain overfitting
+- Observed that tree-based models overfit the training data, while linear and distance-based models benefited most from improved preprocessing
 
-\section*{Notes}
-\begin{itemize}[leftmargin=1.2em]
-    \item Some models (Decision Tree, Random Forest) may show very high \textbf{training} accuracy due to overfitting.
-    \item Cross-validation is included in the updated notebook to provide a more realistic estimate of performance.
-\end{itemize}
+---
 
-\section*{Future Homeworks}
-This repository will be updated throughout the semester. Each homework will include:
-\begin{itemize}[leftmargin=1.2em]
-    \item Problem statement or prompt (when allowed)
-    \item Code and experiments
-    \item Report or writeup
-    \item Any required datasets or links (as permitted by course policy)
-\end{itemize}
+## Tools & Libraries
+- Python
+- NumPy
+- Pandas
+- Scikit-learn
+- Jupyter Notebook
 
-\vspace{0.5em}
-\noindent\textbf{Course:} CSE 572 Data Mining \\
-\textbf{Instructor:} \texttt{<Instructor Name>} \\
-\textbf{Repository:} \texttt{<GitHub Repo Link>}
+---
 
-\end{document}
+## Notes
+- This repository is for academic use as part of CSE 572.
+- Code is written incrementally to reflect experimentation and learning.
+- Future homework assignments will be added as separate folders.
+
+---
+
+## Author
+Student, CSE 572 – Data Mining
